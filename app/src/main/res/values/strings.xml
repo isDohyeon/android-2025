@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AndroidDH</string>
+    <string name="text">Hi</string>
+    <string name="lock_icon" translatable="false">lock_icon</string>
+    <string name="login_text" translatable="false">로그인</string>
+    <string name="id_hint" translatable="false">ID를 입력하세요</string>
+    <string name="password_hint" translatable="false">암호를 입력하세요</string>
+    <string name="text_id" translatable="false">ID</string>
+    <string name="text_password_ko" translatable="false">암호</string>
 </resources>
