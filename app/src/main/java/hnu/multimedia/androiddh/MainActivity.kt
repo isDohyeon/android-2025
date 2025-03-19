@@ -15,6 +15,18 @@ class MainActivity : AppCompatActivity() {
         binding.buttonClick.setOnClickListener {
             val id = binding.editTextID.text.toString()
             val password = binding.editTextPassword.text.toString()
+            if (id.isEmpty() && password.isEmpty()) {
+                Snackbar.make(binding.root, "ID와 비밀번호를 입력해주세요", Snackbar.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            if (id.isEmpty()) {
+                Snackbar.make(binding.root, "ID를 입력해주세요", Snackbar.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            if (password.isEmpty()) {
+                Snackbar.make(binding.root, "암호를 입력해주세요", Snackbar.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
             Snackbar.make(binding.root, "ID: $id\n암호: $password", Snackbar.LENGTH_LONG).show()
         }
     }
