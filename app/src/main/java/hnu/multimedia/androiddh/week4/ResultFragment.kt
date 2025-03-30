@@ -1,5 +1,6 @@
 package hnu.multimedia.androiddh.week4
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,7 @@ class ResultFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,7 +40,12 @@ class ResultFragment : Fragment() {
         val (result, emojiResId) = getBmiResult(bmi)
 
         binding.textResult.text = result
-        binding.textContent.text = ""
+        val heightCm = height!! * 100.0
+        val (min, max) = getNormalWeightRange(heightCm)
+        println("정상 체중: %.1fkg ~ %.1fkg".format(min, max))
+        val normalRangeText = "키 ${heightCm}cm의 정상 체중은\n${min}kg ~ ${max}kg 입니다."
+        val adjustmentText = getWeightAdjustment(heightCm, weight!!)
+        binding.textContent.text = normalRangeText + "\n" + adjustmentText
         binding.emojiView.setImageResource(emojiResId)
 
         return binding.root
@@ -52,6 +59,30 @@ class ResultFragment : Fragment() {
             bmi < 30 -> "1단계 비만" to R.drawable.baseline_directions_run_24
             bmi < 35 -> "2단계 비만" to R.drawable.baseline_directions_run_24
             else -> "3단계 비만" to R.drawable.baseline_directions_run_24
+        }
+    }
+
+    @SuppressLint("DefaultLocale")
+    private fun getNormalWeightRange(heightCm: Double): Pair<Double, Double> {
+        val heightM = heightCm / 100
+        val minWeight = 18.5 * heightM * heightM
+        val maxWeight = 22.9 * heightM * heightM
+        return Pair(String.format("%.1f", minWeight).toDouble(), String.format("%.1f", maxWeight).toDouble())
+    }
+
+    private fun getWeightAdjustment(heightCm: Double, currentWeight: Double): String {
+        val (minWeight, maxWeight) = getNormalWeightRange(heightCm)
+
+        return when {
+            currentWeight < minWeight -> {
+                val gain = minWeight - currentWeight
+                "정상 체중까지\n 약 %.1fkg 증량이 필요합니다.".format(gain)
+            }
+            currentWeight > maxWeight -> {
+                val loss = currentWeight - maxWeight
+                "정상 체중까지\n 약 %.1fkg 감량이 필요합니다.".format(loss)
+            }
+            else -> "정상 체중입니다!"
         }
     }
 
