@@ -6,7 +6,7 @@
     android:background="#FFD98C"
     android:orientation="vertical"
     android:padding="50dp"
-    tools:context=".MainFragment">
+    tools:context=".week4.MainFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

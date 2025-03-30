@@ -6,7 +6,7 @@
     android:background="#78CFFF"
     android:orientation="vertical"
     android:padding="50dp"
-    tools:context=".SubFragment">
+    tools:context=".week4.SubFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

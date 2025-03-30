@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="50dp"
-    tools:context=".MainActivity">
+    tools:context=".week4.MainActivity4">
 
     <TextView
         android:id="@+id/textView2"
@@ -18,7 +18,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
-        android:name="hnu.multimedia.androiddh.MainFragment"
+        android:name="hnu.multimedia.androiddh.week4.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
