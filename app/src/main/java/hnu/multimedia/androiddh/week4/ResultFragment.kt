@@ -30,16 +30,47 @@ class ResultFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // TODO
         val bmi = weight / (height * height)
         val (result, emojiResId) = getBmiResult(bmi)
         val heightCm = height * 100.0
-        val (min, max) = getNormalWeightRange(heightCm)
+        val (min, max) = getNormalWeightRange()
         val normalRangeText = "키 ${heightCm}cm의 정상 체중은\n${min}kg ~ ${max}kg 입니다."
-        val adjustmentText = getWeightAdjustment(heightCm, weight)
+        val adjustmentText = getWeightAdjustment(weight)
         setViews(result, normalRangeText, adjustmentText, emojiResId)
 
         return binding.root
+    }
+
+    private fun getBmiResult(bmi: Double): Pair<String, Int> {
+        return when {
+            bmi < 18.5 -> "저체중" to R.drawable.baseline_fastfood_24
+            bmi < 23 -> "정상" to R.drawable.baseline_emoji_emotions_24
+            bmi < 25 -> "과체중" to R.drawable.baseline_fmd_bad_24
+            bmi < 30 -> "1단계 비만" to R.drawable.baseline_directions_run_24
+            bmi < 35 -> "2단계 비만" to R.drawable.baseline_directions_run_24
+            else -> "3단계 비만" to R.drawable.baseline_directions_run_24
+        }
+    }
+
+    private fun getNormalWeightRange(): Pair<Double, Double> {
+        val minWeight = round(18.5 * (height * height) * 10) / 10
+        val maxWeight = round(22.9 * (height * height) * 10) / 10
+        return Pair(minWeight, maxWeight)
+    }
+
+    private fun getWeightAdjustment(currentWeight: Double): String {
+        val (minWeight, maxWeight) = getNormalWeightRange()
+        return when {
+            currentWeight < minWeight -> {
+                val gain = minWeight - currentWeight
+                "정상 체중까지\n 약 %.1fkg 증량이 필요합니다.".format(gain)
+            }
+            currentWeight > maxWeight -> {
+                val loss = currentWeight - maxWeight
+                "정상 체중까지\n 약 %.1fkg 감량이 필요합니다.".format(loss)
+            }
+            else -> "정상 체중입니다! 유지하세요!"
+        }
     }
 
     private fun setViews(
@@ -59,39 +90,6 @@ class ResultFragment : Fragment() {
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.fragmentContainerView, InputFragment())
             transaction.commit()
-        }
-    }
-
-    private fun getBmiResult(bmi: Double): Pair<String, Int> {
-        return when {
-            bmi < 18.5 -> "저체중" to R.drawable.baseline_fastfood_24
-            bmi < 23 -> "정상" to R.drawable.baseline_emoji_emotions_24
-            bmi < 25 -> "과체중" to R.drawable.baseline_fmd_bad_24
-            bmi < 30 -> "1단계 비만" to R.drawable.baseline_directions_run_24
-            bmi < 35 -> "2단계 비만" to R.drawable.baseline_directions_run_24
-            else -> "3단계 비만" to R.drawable.baseline_directions_run_24
-        }
-    }
-
-    private fun getNormalWeightRange(heightCm: Double): Pair<Double, Double> {
-        val heightM = heightCm / 100
-        val minWeight = round(18.5 * heightM * heightM * 10) / 10
-        val maxWeight = round(22.9 * heightM * heightM * 10) / 10
-        return Pair(minWeight, maxWeight)
-    }
-
-    private fun getWeightAdjustment(heightCm: Double, currentWeight: Double): String {
-        val (minWeight, maxWeight) = getNormalWeightRange(heightCm)
-        return when {
-            currentWeight < minWeight -> {
-                val gain = minWeight - currentWeight
-                "정상 체중까지\n 약 %.1fkg 증량이 필요합니다.".format(gain)
-            }
-            currentWeight > maxWeight -> {
-                val loss = currentWeight - maxWeight
-                "정상 체중까지\n 약 %.1fkg 감량이 필요합니다.".format(loss)
-            }
-            else -> "정상 체중입니다! 유지하세요!"
         }
     }
 
