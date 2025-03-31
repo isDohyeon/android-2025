@@ -15,8 +15,8 @@ private const val ARG_PARAM2 = "param2"
 class ResultFragment : Fragment() {
 
     private val binding by lazy { FragmentResultBinding.inflate(layoutInflater) }
-    private var height: Double? = null
-    private var weight: Double? = null
+    private var height: Double = 0.0
+    private var weight: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,29 +29,37 @@ class ResultFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding.buttonBack.setOnClickListener {
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragmentContainerView, InputFragment())
-            transaction.commit()
-        }
-        val bmi = weight!! / (height!! * height!!)
+    ): View {
+        // TODO
+        val bmi = weight / (height * height)
         val (result, emojiResId) = getBmiResult(bmi)
-
-        binding.textResult.text = result
-        val heightCm = height!! * 100.0
+        val heightCm = height * 100.0
         val (min, max) = getNormalWeightRange(heightCm)
-        println("정상 체중: %.1fkg ~ %.1fkg".format(min, max))
         val normalRangeText = "키 ${heightCm}cm의 정상 체중은\n${min}kg ~ ${max}kg 입니다."
-        val adjustmentText = getWeightAdjustment(heightCm, weight!!)
+        val adjustmentText = getWeightAdjustment(heightCm, weight)
+        setViews(result, normalRangeText, adjustmentText, emojiResId)
+
+        return binding.root
+    }
+
+    private fun setViews(
+        result: String,
+        normalRangeText: String,
+        adjustmentText: String,
+        emojiResId: Int
+    ) {
+        binding.textResult.text = result
         binding.textContent.text = buildString {
             append(normalRangeText)
             append("\n")
             append(adjustmentText)
         }
         binding.emojiView.setImageResource(emojiResId)
-
-        return binding.root
+        binding.buttonBack.setOnClickListener {
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragmentContainerView, InputFragment())
+            transaction.commit()
+        }
     }
 
     private fun getBmiResult(bmi: Double): Pair<String, Int> {
@@ -74,7 +82,6 @@ class ResultFragment : Fragment() {
 
     private fun getWeightAdjustment(heightCm: Double, currentWeight: Double): String {
         val (minWeight, maxWeight) = getNormalWeightRange(heightCm)
-
         return when {
             currentWeight < minWeight -> {
                 val gain = minWeight - currentWeight
@@ -84,7 +91,7 @@ class ResultFragment : Fragment() {
                 val loss = currentWeight - maxWeight
                 "정상 체중까지\n 약 %.1fkg 감량이 필요합니다.".format(loss)
             }
-            else -> "정상 체중입니다!"
+            else -> "정상 체중입니다! 유지하세요!"
         }
     }
 

@@ -30,15 +30,15 @@ class InputFragment : Fragment() {
 
     private fun validateInput(height: Double?, weight: Double?): Boolean {
         if (height == null && weight == null) {
-            Snackbar.make(binding.root, "키와 몸무게를 입력해주세요", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(binding.root, "올바른 키와 몸무게를 입력해주세요", Snackbar.LENGTH_LONG).show()
             return true
         }
         if (height == null) {
-            Snackbar.make(binding.root, "키를 입력해주세요", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(binding.root, "올바른 키를 입력해주세요", Snackbar.LENGTH_LONG).show()
             return true
         }
         if (weight == null) {
-            Snackbar.make(binding.root, "몸무게를 입력해주세요", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(binding.root, "올바른 몸무게를 입력해주세요", Snackbar.LENGTH_LONG).show()
             return true
         }
         return false
