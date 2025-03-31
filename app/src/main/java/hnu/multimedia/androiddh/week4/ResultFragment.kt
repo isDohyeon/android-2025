@@ -1,6 +1,5 @@
 package hnu.multimedia.androiddh.week4
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import hnu.multimedia.androiddh.R
 import hnu.multimedia.androiddh.databinding.FragmentResultBinding
+import kotlin.math.round
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -26,7 +26,6 @@ class ResultFragment : Fragment() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,7 +44,11 @@ class ResultFragment : Fragment() {
         println("정상 체중: %.1fkg ~ %.1fkg".format(min, max))
         val normalRangeText = "키 ${heightCm}cm의 정상 체중은\n${min}kg ~ ${max}kg 입니다."
         val adjustmentText = getWeightAdjustment(heightCm, weight!!)
-        binding.textContent.text = normalRangeText + "\n" + adjustmentText
+        binding.textContent.text = buildString {
+            append(normalRangeText)
+            append("\n")
+            append(adjustmentText)
+        }
         binding.emojiView.setImageResource(emojiResId)
 
         return binding.root
@@ -62,12 +65,11 @@ class ResultFragment : Fragment() {
         }
     }
 
-    @SuppressLint("DefaultLocale")
     private fun getNormalWeightRange(heightCm: Double): Pair<Double, Double> {
         val heightM = heightCm / 100
-        val minWeight = 18.5 * heightM * heightM
-        val maxWeight = 22.9 * heightM * heightM
-        return Pair(String.format("%.1f", minWeight).toDouble(), String.format("%.1f", maxWeight).toDouble())
+        val minWeight = round(18.5 * heightM * heightM * 10) / 10
+        val maxWeight = round(22.9 * heightM * heightM * 10) / 10
+        return Pair(minWeight, maxWeight)
     }
 
     private fun getWeightAdjustment(heightCm: Double, currentWeight: Double): String {
