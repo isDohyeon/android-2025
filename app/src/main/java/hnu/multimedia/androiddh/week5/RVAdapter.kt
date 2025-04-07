@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import hnu.multimedia.androiddh.databinding.ItemBinding
 
-class RVAdapter(private val list: List<Item>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
+class RVAdapter(private val itemList: MutableList<ExamModel>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -17,27 +17,31 @@ class RVAdapter(private val list: List<Item>) : RecyclerView.Adapter<RVAdapter.V
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return itemList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.textViewItemName.text = list[position].name
-        holder.binding.textViewItemMood.text = list[position].mood
-        holder.binding.imageViewItemPhoto.setImageResource(list[position].photo)
+        holder.binding.textViewItemTitle.text = itemList[position].title
+        holder.binding.textViewItemTime.text = itemList[position].date
+        holder.binding.textViewItemMemo.text = itemList[position].memo
 
         holder.binding.layout.setOnClickListener {
-            // Intent : 명령 객체 -> 어떤 액티비티로 어떤 데이터를 전달하여 넘길 것인가?
-            // Intent(지금 아이템이 붙어있는 화면의 context(어디서 출발?), 어느 액티비티로 이동할지(어디로 도착?)
             val intent = Intent(holder.binding.root.context, SubActivity::class.java)
-            // 명령에 넘길 데이터를 put
-            intent.putExtra("photo", list[position].photo)
-            intent.putExtra("name", list[position].name)
-            intent.putExtra("mood", list[position].mood)
-            // Context : 현재 화면에 대한 다양한 정보
+            intent.putExtra("mode", "read")
+            intent.putExtra("position", position)
+            intent.putExtra("title", itemList[position].title)
+            intent.putExtra("date", itemList[position].date)
+            intent.putExtra("range", itemList[position].range)
+            intent.putExtra("classroom", itemList[position].classroom)
+            intent.putExtra("memo", itemList[position].memo)
             val context = holder.binding.root.context
-            // 이 context를 바탕으로 Intent를 실행
             context.startActivity(intent)
         }
     }
 
+    fun updateList(newList: List<ExamModel>) {
+        itemList.clear()
+        itemList.addAll(newList)
+        notifyDataSetChanged()
+    }
 }

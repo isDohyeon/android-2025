@@ -8,37 +8,170 @@
     tools:context=".week5.SubActivity">
 
     <ImageView
-        android:id="@+id/imageViewPhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textViewSubName"
+        android:id="@+id/imageViewSubClassroom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPhoto" />
+        android:src="@drawable/baseline_edit_location_alt_24"
+        app:layout_constraintStart_toStartOf="@+id/imageViewSubDate"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSubDate" />
 
     <TextView
-        android:id="@+id/textViewSubMood"
+        android:id="@+id/textViewSubDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="TextView"
-        android:textSize="24sp"
+        android:layout_marginTop="10dp"
+        android:text="날짜 : "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/editTextTitle"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
+
+    <ImageView
+        android:id="@+id/imageViewSubDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSubDate"
+        app:layout_constraintEnd_toStartOf="@+id/textViewSubDate"
+        app:layout_constraintTop_toTopOf="@+id/textViewSubDate"
+        app:srcCompat="@drawable/baseline_access_time_24" />
+
+    <ImageView
+        android:id="@+id/imageViewSubRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewSubClassroom"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSubClassroom"
+        app:srcCompat="@drawable/baseline_format_line_spacing_24" />
+
+    <TextView
+        android:id="@+id/textViewSubClassroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="강의실 : "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewSubClassroom"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSubClassroom"
+        app:layout_constraintTop_toTopOf="@+id/imageViewSubClassroom" />
+
+    <TextView
+        android:id="@+id/textViewSubRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="시험 범위 : "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewSubRange"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSubRange"
+        app:layout_constraintTop_toTopOf="@+id/imageViewSubRange" />
+
+    <EditText
+        android:id="@+id/editTextClassroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="강의실을 입력해주세요"
+        android:inputType="text"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSubClassroom"
+        app:layout_constraintStart_toEndOf="@+id/textViewSubClassroom"
+        app:layout_constraintTop_toTopOf="@+id/textViewSubClassroom" />
+
+    <EditText
+        android:id="@+id/editTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="시험을 입력해주세요"
+        android:inputType="text"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSubName" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="시험 범위를 입력해주세요"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSubRange"
+        app:layout_constraintStart_toEndOf="@+id/textViewSubRange"
+        app:layout_constraintTop_toTopOf="@+id/textViewSubRange" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:ems="10"
+        android:hint="날짜를 선택해주세요"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSubDate"
+        app:layout_constraintStart_toEndOf="@+id/textViewSubDate"
+        app:layout_constraintTop_toTopOf="@+id/textViewSubDate" />
+
+    <ImageView
+        android:id="@+id/imageViewMemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewSubRange"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSubRange"
+        app:srcCompat="@drawable/baseline_content_paste_24" />
+
+    <TextView
+        android:id="@+id/textViewSubMemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="메모"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewMemo"
+        app:layout_constraintStart_toEndOf="@+id/imageViewMemo"
+        app:layout_constraintTop_toTopOf="@+id/imageViewMemo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutMemo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewMemo"
+        app:layout_constraintStart_toStartOf="@+id/imageViewMemo"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextMemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="메모를 입력해주세요" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonSubBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:text="뒤로가기"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonSubAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:text="추가하기"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
