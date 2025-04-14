@@ -7,4 +7,74 @@
     android:layout_height="match_parent"
     tools:context=".week6.SubActivity6">
 
+    <TextView
+        android:id="@+id/textViewSubDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="날짜 : "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/editTextTitle"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
+
+    <TextView
+        android:id="@+id/textViewSubRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="메모 : "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewSubDate"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSubDate" />
+
+    <EditText
+        android:id="@+id/editTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="시험을 입력해주세요"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="메모를 입력해주세요"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSubRange"
+        app:layout_constraintStart_toEndOf="@+id/textViewSubRange"
+        app:layout_constraintTop_toTopOf="@+id/textViewSubRange"
+        app:layout_constraintVertical_bias="0.476" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:ems="10"
+        android:hint="날짜를 선택해주세요"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSubDate"
+        app:layout_constraintStart_toEndOf="@+id/textViewSubDate"
+        app:layout_constraintTop_toTopOf="@+id/textViewSubDate" />
+
+    <Button
+        android:id="@+id/buttonSubBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:text="뒤로가기"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTitle"
+        app:layout_constraintVertical_bias="0.261" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

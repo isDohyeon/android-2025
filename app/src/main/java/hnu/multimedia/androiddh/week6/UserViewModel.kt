@@ -24,4 +24,10 @@ class UserViewModel: ViewModel() {
             userRepository.delete(user)
         }
     }
+
+    fun updateUser(user: UserEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            userRepository.update(user)
+        }
+    }
 }

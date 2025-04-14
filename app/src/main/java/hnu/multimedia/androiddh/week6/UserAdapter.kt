@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import hnu.multimedia.androiddh.databinding.ItemBinding
 import hnu.multimedia.androiddh.week6.db.UserEntity
 
-class UserAdapter(private val onLongClick: (UserEntity, Int) -> Boolean) :
+class UserAdapter(private val onClick: (UserEntity) -> Unit,
+    private val onLongClick: (UserEntity, Int) -> Boolean) :
     ListAdapter<UserEntity, UserAdapter.ViewHolder>(UserDiffCallBack()) {
 
     class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -37,6 +38,10 @@ class UserAdapter(private val onLongClick: (UserEntity, Int) -> Boolean) :
 
         holder.binding.root.setOnLongClickListener {
             onLongClick(item, position)
+        }
+
+        holder.binding.layout.setOnClickListener {
+            onClick(item)
         }
     }
 }
