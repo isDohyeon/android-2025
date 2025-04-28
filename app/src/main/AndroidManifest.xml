@@ -14,22 +14,13 @@
         android:theme="@style/Theme.AndroidDH"
         tools:targetApi="31">
         <activity
-            android:name=".week6.SubActivity6"
+            android:name=".week7.Write7Activity"
             android:exported="false" />
         <activity
-            android:name=".week3.MainActivity3"
-            android:exported="true" />
-        <activity
-            android:name=".week4.MainActivity4"
-            android:exported="true"></activity>
-        <activity
-            android:name=".week5.SubActivity"
+            android:name=".week7.Board7Activity"
             android:exported="false" />
         <activity
-            android:name=".week5.Main5Activity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".week6.Main6Activity"
+            android:name=".week7.Main7Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +28,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".week6.SubActivity6"
+            android:exported="false" />
+        <activity
+            android:name=".week6.Main6Activity"
+            android:exported="true" />
+        <activity
+            android:name=".week5.SubActivity"
+            android:exported="false" />
+        <activity
+            android:name=".week5.Main5Activity"
+            android:exported="true" />
+        <activity
+            android:name=".week4.MainActivity4"
+            android:exported="true" />
+        <activity
+            android:name=".week3.MainActivity3"
+            android:exported="true" />
     </application>
 
 </manifest>

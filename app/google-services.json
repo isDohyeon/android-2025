@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1060183400451",
+    "project_id": "fir-test-9b21c",
+    "storage_bucket": "fir-test-9b21c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060183400451:android:432c207ed3e347b26eee36",
+        "android_client_info": {
+          "package_name": "hnu.multimedia.androiddh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXuHxAdYTY1S10Y0PIWAK7IZZ6oBs2jnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

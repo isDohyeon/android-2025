@@ -5,14 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import hnu.multimedia.androiddh.databinding.ItemBinding
+import hnu.multimedia.androiddh.databinding.Item6Binding
 import hnu.multimedia.androiddh.week6.db.UserEntity
 
-class UserAdapter(private val onClick: (UserEntity) -> Unit,
-    private val onLongClick: (UserEntity, Int) -> Boolean) :
-    ListAdapter<UserEntity, UserAdapter.ViewHolder>(UserDiffCallBack()) {
+class UserAdapter6(private val onClick: (UserEntity) -> Unit,
+                   private val onLongClick: (UserEntity, Int) -> Boolean) :
+    ListAdapter<UserEntity, UserAdapter6.ViewHolder>(UserDiffCallBack()) {
 
-    class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: Item6Binding) : RecyclerView.ViewHolder(binding.root)
 
     class UserDiffCallBack: DiffUtil.ItemCallback<UserEntity>() {
         override fun areItemsTheSame(oldItem: UserEntity, newItem: UserEntity): Boolean {
@@ -26,7 +26,7 @@ class UserAdapter(private val onClick: (UserEntity) -> Unit,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val itemBinding = ItemBinding.inflate(inflater, parent, false)
+        val itemBinding = Item6Binding.inflate(inflater, parent, false)
         return ViewHolder(itemBinding)
     }
 

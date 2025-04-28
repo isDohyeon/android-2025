@@ -14,7 +14,7 @@ import hnu.multimedia.androiddh.week6.db.UserEntity
 class Main6Activity : AppCompatActivity() {
 
     private val binding by lazy { ActivityMain6Binding.inflate(layoutInflater) }
-    private lateinit var adapter: UserAdapter
+    private lateinit var adapter: UserAdapter6
     private val userViewModel: UserViewModel by viewModels()
 
     private val editLauncher = registerForActivityResult(
@@ -38,7 +38,7 @@ class Main6Activity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        adapter = UserAdapter(
+        adapter = UserAdapter6(
             onClick = { user ->
                 val intent = Intent(this, SubActivity6::class.java).apply {
                     putExtra("user_id", user.id)

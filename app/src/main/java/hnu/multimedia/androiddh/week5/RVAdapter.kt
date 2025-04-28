@@ -4,15 +4,15 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import hnu.multimedia.androiddh.databinding.ItemBinding
+import hnu.multimedia.androiddh.databinding.Item6Binding
 
 class RVAdapter(private val itemList: MutableList<ExamModel>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
 
-    class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: Item6Binding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val itemBinding = ItemBinding.inflate(inflater, parent, false)
+        val itemBinding = Item6Binding.inflate(inflater, parent, false)
         return ViewHolder(itemBinding)
     }
 
