@@ -14,16 +14,23 @@
         android:theme="@style/Theme.AndroidDH"
         tools:targetApi="31">
         <activity
-            android:name=".week8.MainActivity8"
+            android:name=".week9.MainActivity9"
             android:exported="true"
-            android:label="@string/title_activity_main8" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:label="@string/title_activity_main9" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
+
+        <activity
+            android:name=".week8.MainActivity8"
+            android:exported="true"
+            android:label="@string/title_activity_main8">
+
+        </activity>
         <activity
             android:name=".week7.Write7Activity"
             android:exported="false" />
@@ -32,9 +39,7 @@
             android:exported="false" />
         <activity
             android:name=".week7.Main7Activity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".week6.SubActivity6"
             android:exported="false" />
