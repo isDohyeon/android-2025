@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_red"
+        android:icon="@drawable/baseline_color_lens_24"
+        android:title="red" />
+
+    <item
+        android:id="@+id/navigation_pink"
+        android:icon="@drawable/baseline_color_lens_24"
+        android:title="pink" />
+
+    <item
+        android:id="@+id/navigation_yellow"
+        android:icon="@drawable/baseline_color_lens_24"
+        android:title="yellow" />
+
+    <item
+        android:id="@+id/navigation_blue"
+        android:icon="@drawable/baseline_color_lens_24"
+        android:title="blue" />
+
+</menu>

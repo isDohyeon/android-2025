@@ -13,17 +13,6 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="MainActivity">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-03-19T14:10:34.317369Z">
-          <Target type="DEFAULT_BOOT">
-            <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/dohyeon/.android/avd/Pixel_API_34.avd" />
-            </handle>
-          </Target>
-        </DropdownSelection>
-        <DialogSelection />
-      </SelectionState>
       <SelectionState runConfigName="Main5Activity">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
@@ -50,6 +39,9 @@
         <DialogSelection />
       </SelectionState>
       <SelectionState runConfigName="Write7Activity">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="MainActivity8">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
