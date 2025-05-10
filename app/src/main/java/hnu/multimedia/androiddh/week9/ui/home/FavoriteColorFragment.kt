@@ -27,7 +27,7 @@ class FavoriteColorFragment : Fragment() {
     ): View {
         getFavoriteColors()
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView.adapter = ColorAdapter(favoriteColorList)
+        binding.recyclerView.adapter = ColorAdapter(favoriteColorList, true)
 
         return binding.root
     }

@@ -7,7 +7,8 @@ import com.google.android.material.snackbar.Snackbar
 import hnu.multimedia.androiddh.databinding.ItemColorBinding
 
 class ColorAdapter(
-    private val list: List<ColorModel>
+    private val list: List<ColorModel>,
+    private val isFavoriteList: Boolean = false
 ) : RecyclerView.Adapter<ColorAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ItemColorBinding) : RecyclerView.ViewHolder(binding.root)
@@ -23,19 +24,35 @@ class ColorAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val color = list[position].color
-        val hexCode = list[position].hexCode
+        val colorModel = list[position]
+        val color = colorModel.color
+        val hexCode = colorModel.hexCode
 
         holder.binding.layoutBackground.setBackgroundColor(color)
         holder.binding.textColorCode.text = hexCode
 
         holder.binding.root.setOnClickListener {
-            FirebaseRef.favoriteColors.push().setValue(ColorModel(color, hexCode))
-            Snackbar.make(
-                holder.itemView,
-                "색상 $hexCode 가 추가되었습니다",
-                Snackbar.LENGTH_SHORT
-            ).show()
+            if (!isFavoriteList) {
+                val newRef = FirebaseRef.favoriteColors.push()
+                newRef.setValue(ColorModel(color, hexCode, newRef.key.toString()))
+                Snackbar.make(
+                    holder.itemView,
+                    "색상 $hexCode 가 추가되었습니다",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+        holder.binding.root.setOnLongClickListener {
+            if (isFavoriteList && colorModel.uid.isNotEmpty()) {
+                FirebaseRef.favoriteColors.child(colorModel.uid).removeValue()
+                Snackbar.make(
+                    holder.itemView,
+                    "색상 $hexCode 가 삭제되었습니다",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+            true
         }
     }
 }
