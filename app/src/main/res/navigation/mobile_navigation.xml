@@ -5,27 +5,28 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_red">
 
-<!--    <fragment-->
-<!--        android:id="@+id/navigation_red"-->
-<!--        android:name="hnu.multimedia.androiddh.week8.ui.red.RedFragment"-->
-<!--        android:label="red"-->
-<!--        tools:layout="@layout/fragment_red" />-->
+    <fragment
+        android:id="@+id/navigation_red"
+        android:name="hnu.multimedia.androiddh.week8.ui.red.RedFragment"
+        android:label="red"
+        tools:layout="@layout/fragment_red" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/navigation_pink"-->
-<!--        android:name="hnu.multimedia.androiddh.week8.ui.pink.PinkFragment"-->
-<!--        android:label="pink"-->
-<!--        tools:layout="@layout/fragment_pink" />-->
+    <fragment
+        android:id="@+id/navigation_pink"
+        android:name="hnu.multimedia.androiddh.week8.ui.pink.PinkFragment"
+        android:label="pink"
+        tools:layout="@layout/fragment_pink" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/navigation_yellow"-->
-<!--        android:name="hnu.multimedia.androiddh.week8.ui.yellow.YellowFragment"-->
-<!--        android:label="yellow"-->
-<!--        tools:layout="@layout/fragment_yellow" />-->
+    <fragment
+        android:id="@+id/navigation_yellow"
+        android:name="hnu.multimedia.androiddh.week8.ui.yellow.YellowFragment"
+        android:label="yellow"
+        tools:layout="@layout/fragment_yellow" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/navigation_blue"-->
-<!--        android:name="hnu.multimedia.androiddh.week8.ui.blue.BlueFragment"-->
-<!--        android:label="blue"-->
-<!--        tools:layout="@layout/fragment_blue" />-->
+    <fragment
+        android:id="@+id/navigation_blue"
+        android:name="hnu.multimedia.androiddh.week8.ui.blue.BlueFragment"
+        android:label="blue"
+        tools:layout="@layout/fragment_blue" />
+
 </navigation>
