@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- 인터넷 권한 추가 (Glide로 이미지 로드할 때 필요) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".week6.AppContext"
         android:allowBackup="true"
@@ -12,54 +16,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidDH"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
-            android:name=".week10.MainActivity10"
+            android:name=".week12.MainActivity12"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".week9.MainActivity9"
-            android:exported="true"
-            android:label="@string/title_activity_main9">
-        </activity>
-        <activity
-            android:name=".week8.MainActivity8"
-            android:exported="true"
-            android:label="@string/title_activity_main8">
 
-        </activity>
-        <activity
-            android:name=".week7.Write7Activity"
-            android:exported="false" />
-        <activity
-            android:name=".week7.Board7Activity"
-            android:exported="false" />
-        <activity
-            android:name=".week7.Main7Activity"
-            android:exported="true" />
-        <activity
-            android:name=".week6.SubActivity6"
-            android:exported="false" />
-        <activity
-            android:name=".week6.Main6Activity"
-            android:exported="true" />
-        <activity
-            android:name=".week5.SubActivity"
-            android:exported="false" />
-        <activity
-            android:name=".week5.Main5Activity"
-            android:exported="true" />
-        <activity
-            android:name=".week4.MainActivity4"
-            android:exported="true" />
-        <activity
-            android:name=".week3.MainActivity3"
-            android:exported="true" />
     </application>
 
 </manifest>

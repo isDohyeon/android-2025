@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -37,6 +39,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = false
     }
 }
 
@@ -76,4 +79,6 @@ dependencies {
     implementation("com.google.firebase:firebase-storage")
 
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation("com.github.yuyakaido:CardStackView:v2.3.4")
 }

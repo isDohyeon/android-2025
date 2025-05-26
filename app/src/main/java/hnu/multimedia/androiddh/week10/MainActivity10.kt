@@ -2,7 +2,6 @@ package hnu.multimedia.androiddh.week10
 
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -63,9 +62,9 @@ class MainActivity10 : AppCompatActivity() {
             .addOnSuccessListener {
                 imageRef.downloadUrl.addOnSuccessListener { downloadUri ->
                     list.add(ImageModel(fileName, downloadUri.toString()))
+                    adapter.notifyDataSetChanged()
+                    Snackbar.make(binding.root, "업로드 성공!", Snackbar.LENGTH_SHORT).show()
                 }
             }
-        adapter.notifyDataSetChanged()
-        Snackbar.make(binding.root, "업로드 성공!", Snackbar.LENGTH_SHORT).show()
     }
 }
