@@ -1,14 +1,11 @@
-package hnu.multimedia.androiddh.week13
+package hnu.multimedia.androiddh.week14
 
 import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
 import android.content.Context.NOTIFICATION_SERVICE
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -19,11 +16,11 @@ import hnu.multimedia.androiddh.R
 class NotificationUtil {
 
     companion object {
-        private val CHANNEL_ID = "notification_test3"
+        private val CHANNEL_ID = "channelId"
         private val CHANNEL_NAME = "channelName"
         private val CHANNEL_DESC = "channelDesc"
 
-        fun createNotification(context: Context, title: String, message: String, url: String, importance: Int) {
+        fun createNotification(context: Context, title: String, message: String) {
             val notificationManager = context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             val builder : NotificationCompat.Builder
 
@@ -31,38 +28,21 @@ class NotificationUtil {
                 val mChannel = NotificationChannel(
                     CHANNEL_ID,
                     CHANNEL_NAME,
-                    importance
+                    NotificationManager.IMPORTANCE_HIGH
                 )
                 mChannel.description = CHANNEL_DESC
                 notificationManager.createNotificationChannel(mChannel)
                 builder = NotificationCompat.Builder(context, CHANNEL_ID)
             } else {
                 builder = NotificationCompat.Builder(context)
+                    .setDefaults(NotificationCompat.DEFAULT_ALL)
             }
-
-            val fixedUrl = if (!url.startsWith("http://") && !url.startsWith("https://")) {
-                "https://$url"
-            } else {
-                url
-            }
-
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(fixedUrl))
-
-            val pendingIntent = PendingIntent.getActivity(
-                context,
-                System.currentTimeMillis().toInt(),
-                intent,
-                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-            )
-
             builder.setSmallIcon(R.drawable.notification)
-            builder.setPriority(importance)
+            builder.setPriority(NotificationCompat.PRIORITY_HIGH)
             builder.setContentTitle(title)
             builder.setContentText(message)
-            builder.setContentIntent(pendingIntent)
-            builder.setAutoCancel(true)
 
-            notificationManager.notify(1, builder.build())
+            notificationManager.notify(System.currentTimeMillis().toInt(), builder.build())
         }
 
         fun requestPermissions(activity: AppCompatActivity) {

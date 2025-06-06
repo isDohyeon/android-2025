@@ -25,7 +25,7 @@ class MainActivity13 : AppCompatActivity() {
                 Snackbar.make(binding.root, "중요도는 0~4 사이로 입력해주세요.", Snackbar.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            NotificationUtil.createNotification(this, title, message, url, importance)
+            NotificationUtil.createNotification(binding.root.context, title, message, url, importance)
         }
     }
 }

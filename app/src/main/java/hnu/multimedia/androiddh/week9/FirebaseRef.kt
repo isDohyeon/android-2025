@@ -8,5 +8,6 @@ class FirebaseRef {
     companion object {
         private val database = Firebase.database
         val favoriteColors = database.getReference("favoriteColors")
+        val fcmToken = database.getReference("fcmToken")
     }
 }
