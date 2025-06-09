@@ -62,10 +62,10 @@
       </SelectionState>
       <SelectionState runConfigName="MainActivity14">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-06-06T15:10:15.271274Z">
+        <DropdownSelection timestamp="2025-06-09T09:32:08.119883Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=0b150200f352e3a5" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/dohyeon/.android/avd/Pixel_API_34_tinder.avd" />
             </handle>
           </Target>
         </DropdownSelection>

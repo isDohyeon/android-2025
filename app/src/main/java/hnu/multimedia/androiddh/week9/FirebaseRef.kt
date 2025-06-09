@@ -9,5 +9,7 @@ class FirebaseRef {
         private val database = Firebase.database
         val favoriteColors = database.getReference("favoriteColors")
         val fcmToken = database.getReference("fcmToken")
+        val androidFCM = database.getReference("fcmToken/android")
+        val galaxyFCM = database.getReference("fcmToken/galaxy")
     }
 }

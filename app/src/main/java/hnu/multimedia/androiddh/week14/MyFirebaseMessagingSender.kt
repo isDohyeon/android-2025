@@ -1,10 +1,6 @@
 package hnu.multimedia.androiddh.week14
 
 import android.util.Log
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.getValue
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -18,7 +14,7 @@ import java.util.concurrent.TimeUnit
 
 class MyFirebaseMessagingSender {
 
-    private val SERVER_IP = "172.30.1.76"
+    private val SERVER_IP = "172.31.143.68"
     private val client = OkHttpClient.Builder()
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
@@ -38,7 +34,6 @@ class MyFirebaseMessagingSender {
             json.toString()
         )
 
-        // okhttp3 를 import
         val request = Request.Builder()
             .url(url)
             .post(requestBody)

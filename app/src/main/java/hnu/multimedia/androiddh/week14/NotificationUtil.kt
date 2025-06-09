@@ -16,7 +16,7 @@ import hnu.multimedia.androiddh.R
 class NotificationUtil {
 
     companion object {
-        private val CHANNEL_ID = "channelId"
+        private val CHANNEL_ID = "channelId2"
         private val CHANNEL_NAME = "channelName"
         private val CHANNEL_DESC = "channelDesc"
 

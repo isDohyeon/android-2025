@@ -28,8 +28,15 @@
         android:inputType="text" />
 
     <Button
-        android:id="@+id/buttonSend"
+        android:id="@+id/buttonSendEmulator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="보내기" />
+        android:layout_marginBottom="20dp"
+        android:text="에뮬레이터로 보내기" />
+
+    <Button
+        android:id="@+id/buttonSendGalaxy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="갤럭시로 보내기" />
 </LinearLayout>
